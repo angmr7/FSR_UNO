@@ -10,6 +10,7 @@ The Arduino Uno is not natively a USB HID device that can send real keyboard/joy
 - [Setup](#setup)
   - [Arduino Code](#arduino-code)
   - [Python Serial Interpreter](#python-serial-interpreter)
+- [Circuit](#circuit)
 
 ## Overview
 
@@ -76,4 +77,21 @@ You can create a udev rule:
 
 5. You may need to disconnect and reconnect the Arduino for the changes to take effect
 
+## Circuit
 
+1. **Understanding the FSR**: 
+   - An FSR is a variable resistor that changes its resistance based on the pressure applied to it. The more pressure applied, the lower the resistance.
+   - FSRs are not highly accurate for measuring exact weights but are excellent for detecting pressure changes.
+
+2. **Circuit Design**:
+   - The FSR is connected in series with a fixed resistor (commonly 10kΩ) to form a voltage divider circuit.
+   - The voltage across the fixed resistor changes with the pressure applied to the FSR, which can be read by the Arduino's analog input.
+
+3. **Wiring the Circuit**:
+   - Connect one terminal of the FSR to the 5V pin on the Arduino.
+   - Connect the other terminal of the FSR to one terminal resistor (in my case i am using a 220Ω resistor).
+   - Connect the other terminal of the resistor to the GND pin on the Arduino.
+   - Connect the junction of the FSR and the resistor to the A0 analog input pin on the Arduino.
+   - Repeat the same process for the other sensors, connecting them to their respective analog input pins on the Arduino.
+
+![My Image](figures/circuit_one.png)
