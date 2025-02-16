@@ -35,13 +35,13 @@ pip install pyinput
 
 1. Make sure you have permissions for the board
 
-*. Single use time:
+* Single use time:
 
 ```
 sudo chmod a+rw /dev/ttyACM0
 ```
 
-*. Make the settings permanent
+* Make the settings permanent
 
 You can create a udev rule:
 
